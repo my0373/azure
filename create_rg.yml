@@ -2,7 +2,7 @@
 - hosts: localhost
   vars:
     location: "westus"
-    rg_name: "myresourceGroup"
+    rg_name: "mryDynamicResourceGroup"
 
 
   tasks:
