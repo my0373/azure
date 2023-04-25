@@ -5,12 +5,10 @@
     tenant_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
     group_name: "Group-Name"
     mail_nickname: "Group-Mail-Nickname"
-  connection: local
-  gather_facts: false
 
   tasks:
   - name: Create AZ Azure Group
-    azure_rm_adgroup:
+    azure.azcollection.azure_rm_adgroup:
       tenant: "{{ tenant_id }}"
       display_name: "{{ group_name }}"
       mail_nickname: "{{ mail_nickname }}"
