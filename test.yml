@@ -1,6 +1,15 @@
 ---
 - hosts: localhost
+  vars:
+    email: "user@server.com"
+    tenant: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
   tasks:
-  - name: Get facts for current logged in user
-    azure.azcollection.azure_rm_account_info:
+  - name: Using user_principal_name
+    azure.azcollection.azure_rm_aduser_info:
+     user_principal_name: "{{ email }}"
+     tenant: "{{ tenant }}"
+    register: founduser
 
+  - name: Print user details
+    ansible.builtin.debug:
+      var: founduser
