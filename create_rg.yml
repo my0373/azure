@@ -8,8 +8,8 @@
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:
-      name: "{{ location }}"
-      location: "{{  rg_name }}"
+      name: "{{ rg_name }}"
+      location: "{{  location }}"
       tags:
           testing: testing
           delete: never
