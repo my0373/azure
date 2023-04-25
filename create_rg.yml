@@ -1,11 +1,15 @@
 ---
 - hosts: localhost
+  vars:
+    location: "westus"
+    rg_name: "myresourceGroup"
+
 
   tasks:
   - name: Create a resource group
     azure_rm_resourcegroup:
-      name: myResourceGroup
-      location: westus
+      name: "{{ location }}"
+      location: "{{  rg_name }}"
       tags:
           testing: testing
           delete: never
