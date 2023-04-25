@@ -1,8 +1,17 @@
 ---
 - name: Test the inventory script
   hosts: localhost
+  vars:
+    tenant_id: "xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx"
+    group_name: "Group-Name"
+    mail_nickname: "Group-Mail-Nickname"
   connection: local
   gather_facts: false
+
   tasks:
-    - debug:
-        msg: "{{ inventory_hostname }}"
+  - name: Create AZ Azure Group
+    azure_rm_adgroup:
+      tenant: "{{ tenant_id }}"
+      display_name: "{{ group_name }}"
+      mail_nickname: "{{ mail_nickname }}"
+      state: 'present'
