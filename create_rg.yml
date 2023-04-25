@@ -1,5 +1,6 @@
 ---
 - hosts: localhost
+  connection: local
   vars:
     location: "westus"
     rg_name: "mryDynamicResourceGroup"
