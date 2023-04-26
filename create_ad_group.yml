@@ -18,4 +18,4 @@
 
   - name:  Print created group information
     ansible.builtin.debug:
-      var: created_group_info
+      var: created_group_info.object_id
