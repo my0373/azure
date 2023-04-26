@@ -33,6 +33,10 @@
       mail: "{{ mail }}"
     register: created_user_info
 
+  - name: print debug
+    ansible.builting.debug:
+      var: created_user_info
+
   - name: Stashing the group object_id away for later
     ansible.builtin.set_stats:
       data:
