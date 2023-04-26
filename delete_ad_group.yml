@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    tenant_id: "xxx"
+    group_object_id: "xx"
+
+  tasks:
+  - name: Delete Group
+    azure.azcollection.azure_rm_adgroup:
+      tenant: "{{ tenant_id }}"
+      object_id: "{{ group_object_id }}"
+      state: 'absent'
+    register: deleted_group_info
+
+  - name:  Print deleted group information
+    ansible.builtin.debug:
+      var: deleted_group_info
