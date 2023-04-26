@@ -23,7 +23,7 @@
       account_enabled: "True"
       display_name: "{{ user_display_name }}"
       password_profile: "th3C0mplexPa55w0rd!"
-      user_mail_nickname: "test2"
+      mail_nickname: "test2"
       #immutable_id: "{{ object_id }}"
       given_name: "{{ given_name }}"
       surname: "{{ surname }}"
