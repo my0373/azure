@@ -16,6 +16,12 @@
       state: 'present'
     register: created_group_info
 
+
+  - name: Stashing the group object_id away for later
+    ansible.builtin.set_stats:
+      data:
+        user_object_id: created_group_info.object_id
+
   - name:  Print created group information
     ansible.builtin.debug:
-      var: created_group_info.object_id
+      var: user_object_id
