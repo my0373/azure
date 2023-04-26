@@ -31,7 +31,7 @@
       user_type: "{{ user_type }}"
       usage_location: "{{ usage_location }}"
       mail: "{{ mail }}"
-    register: create_user_info
+    register: created_user_info
 
   - name: Stashing the group object_id away for later
     ansible.builtin.set_stats:
