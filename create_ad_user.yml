@@ -40,7 +40,7 @@
   - name: Stashing the group object_id away for later
     ansible.builtin.set_stats:
       data:
-        user_object_id: "{{ created_user_info.object_id }}"
+        user_object_id: "{{ created_user_info.ad_user.object_id }}"
         user_default_password: "{{ password }}"
         user_principal: "{{ user_id }}"
       aggregate: no
