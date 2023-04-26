@@ -1,0 +1,23 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    tenant_id: "xxx"
+    group_object_id: ""
+    present_members:
+      - "user_object_id 1"
+      - "user_object_id 2"
+
+
+  tasks:
+  - name: Add members to group
+    azure.azcollection.azure_rm_adgroup:
+      tenant: "{{ tenant_id }}"
+      object_id: "{{ group_object_id }}"
+      present_members: present_members
+      state: 'present'
+    register: created_group_info
+
+  - name:  Print created group information
+    ansible.builtin.debug:
+      var: created_group_info
