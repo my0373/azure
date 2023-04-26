@@ -20,6 +20,6 @@
   - name: Stashing the group object_id away for later
     ansible.builtin.set_stats:
       data:
-        user_object_id: "{{ created_group_info.object_id }}"
+        group_object_id: "{{ created_group_info.object_id }}"
       aggregate: no
 

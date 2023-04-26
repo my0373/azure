@@ -1,11 +1,6 @@
 ---
 - hosts: localhost
   connection: local
-  vars:
-    tenant_id: "xxx"
-    group_object_id: ""
-    user_object_id: ""
-
 
   tasks:
   - name: Add members to group

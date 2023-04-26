@@ -12,6 +12,7 @@
     user_type: "Member"
     usage_location: "US"
     mail: "{{ user_id }}@redhat.com"
+    password: "th3C0mplexPa55w0rd!"
 
 
   tasks:
@@ -22,7 +23,7 @@
       state: "present"
       account_enabled: "True"
       display_name: "{{ user_display_name }}"
-      password_profile: "th3C0mplexPa55w0rd!"
+      password_profile: "{{ password }}"
       mail_nickname: "test2"
       #immutable_id: "{{ object_id }}"
       given_name: "{{ given_name }}"
@@ -32,6 +33,11 @@
       mail: "{{ mail }}"
     register: create_user_info
 
-  - name: Print Created User Information
-    ansible.builtin.debug:
-      var: user_object_id
+  - name: Stashing the group object_id away for later
+    ansible.builtin.set_stats:
+    data:
+      user_object_id: "{{ created_user_info.object_id }}"
+      user_default_password: "{{ password }}"
+      user_principal: "{{ user_id }}"
+    aggregate: no
+
