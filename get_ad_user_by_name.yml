@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    user_principal_name: "User Principal Name"
+    tenant_id: "xxx"
+
+
+  tasks:
+  - name: Get user information by principal
+    azure.azcollection.azure_rm_aduser_info:
+      user_principal_name: "{{ user_id }}"
+      tenant: "{{ tenant_id }}"
+    register: user_info
+
+  - name: "Print Discovered User Information for {{ user_id }}"
+    ansible.builtin.debug:
+      var: user_info
