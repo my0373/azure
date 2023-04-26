@@ -3,16 +3,16 @@
   connection: local
   vars:
     tenant_id: "xxx"
-    display_name: "aap-default-group-name"
-    mail_nickname: "aap-group-mail-nickname"
+    group_display_name: "aap-default-group-name"
+    group_mail_nickname: "aap-group-mail-nickname"
 
 
   tasks:
   - name: Create Group
     azure.azcollection.azure_rm_adgroup:
       tenant: "{{ tenant_id }}"
-      display_name: "{{ display_name }}"
-      mail_nickname: "{{ mail_nickname }}"
+      display_name: "{{ group_display_name }}"
+      mail_nickname: "{{ group_mail_nickname }}"
       state: 'present'
     register: created_group_info
 

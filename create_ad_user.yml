@@ -2,7 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
-    display_name: "xxx"
+    user_display_name: "xxx"
     tenant_id: "xxx"
     user_id: "user-redhat"
     user_principal_name: "{{ user_id }}"
@@ -21,9 +21,9 @@
       tenant: "{{ tenant_id }}"
       state: "present"
       account_enabled: "True"
-      display_name: "{{ display_name }}"
+      display_name: "{{ user_display_name }}"
       password_profile: "th3C0mplexPa55w0rd!"
-      mail_nickname: "test2"
+      user_mail_nickname: "test2"
       #immutable_id: "{{ object_id }}"
       given_name: "{{ given_name }}"
       surname: "{{ surname }}"
@@ -34,4 +34,4 @@
 
   - name: Print Created User Information
     ansible.builtin.debug:
-      var: create_user_info
+      var: create_user_info.object_id
