@@ -30,3 +30,8 @@
       user_type: "{{ user_type }}"
       usage_location: "{{ usage_location }}"
       mail: "{{ mail }}"
+    register: create_user_info
+
+  - name: Print Created User Information
+    ansible.builtin.debug:
+      var: create_user_info
