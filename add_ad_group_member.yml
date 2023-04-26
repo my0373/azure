@@ -16,7 +16,7 @@
       object_id: "{{ group_object_id }}"
       present_members: "{{ item }}"
       state: 'present'
-    loop: present_members
+    loop: "{{ present_members }}"
     register: created_group_info
 
   - name:  Print created group information
