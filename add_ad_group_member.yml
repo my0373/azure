@@ -4,9 +4,7 @@
   vars:
     tenant_id: "xxx"
     group_object_id: ""
-    present_members:
-      - "user_object_id 1"
-      - "user_object_id 2"
+    user_object_id: ""
 
 
   tasks:
@@ -14,10 +12,11 @@
     azure.azcollection.azure_rm_adgroup:
       tenant: "{{ tenant_id }}"
       object_id: "{{ group_object_id }}"
-      present_members: "{{ item }}"
+      present_members: 
+        - "{{ user_object_id }}"
       state: 'present'
-    loop: "{{ present_members }}"
     register: created_group_info
+
 
   - name:  Print created group information
     ansible.builtin.debug:
