@@ -35,7 +35,7 @@
 
   - name: print debug
     ansible.builtin.debug:
-      var: created_user_info
+      msg: "{{ created_user_info.ad_user.object_id }}"
 
   - name: Stashing the group object_id away for later
     ansible.builtin.set_stats:
