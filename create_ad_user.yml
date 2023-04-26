@@ -14,7 +14,7 @@
 
   tasks:
   - name: Create user
-    azure_rm_aduser:
+    azure.azcollection.azure_rm_aduser:
       user_principal_name: "{{ user_id }}"
       tenant: "{{ tenant_id }}"
       state: "present"
