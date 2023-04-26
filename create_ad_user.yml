@@ -34,4 +34,4 @@
 
   - name: Print Created User Information
     ansible.builtin.debug:
-      var: create_user_info.object_id
+      var: user_object_id
