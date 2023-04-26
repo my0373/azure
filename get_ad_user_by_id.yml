@@ -1,0 +1,18 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    user_object_id: "This_should_be_a_user_supplied_object_id"
+    tenant_id: "xxx"
+
+
+  tasks:
+  - name: Get user information by object id
+    azure.azcollection.azure_rm_aduser_info:
+      object_id: "{{ user_object_id }}"
+      tenant: "{{ tenant_id }}"
+    register: user_info
+
+  - name: "Print Discovered User Information for {{ user_id }}"
+    ansible.builtin.debug:
+      var: user_info
