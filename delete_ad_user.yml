@@ -1,0 +1,20 @@
+---
+- hosts: localhost
+  connection: local
+  vars:
+    tenant_id: "xxx"
+    user_id: "user-redhat"
+    user_principal_name: "{{ user_id }}"
+
+
+  tasks:
+  - name: Delete user
+    azure.azcollection.azure_rm_aduser:
+      user_principal_name: "{{ user_id }}"
+      tenant: "{{ tenant_id }}"
+      state: "absent"
+    register: delete_user_info
+
+  - name: Print Created User Information
+    ansible.builtin.debug:
+      var: delete_user_info
