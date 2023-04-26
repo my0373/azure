@@ -2,6 +2,7 @@
 - hosts: localhost
   connection: local
   vars:
+    display_name: "xxx"
     tenant_id: "xxx"
     user_id: "user-redhat"
     user_principal_name: "{{ user_id }}"
@@ -20,7 +21,7 @@
       tenant: "{{ tenant_id }}"
       state: "present"
       account_enabled: "True"
-      display_name: "Test_{{ user_principal_name }}_Display_Name"
+      display_name: "{{ display_name }}"
       password_profile: "th3C0mplexPa55w0rd!"
       mail_nickname: "test2"
       #immutable_id: "{{ object_id }}"
