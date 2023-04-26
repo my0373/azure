@@ -21,7 +21,7 @@
       state: "present"
       account_enabled: "True"
       display_name: "Test_{{ user_principal_name }}_Display_Name"
-      password_profile: "password"
+      password_profile: "th3C0mplexPa55w0rd!"
       mail_nickname: "test2"
       #immutable_id: "{{ object_id }}"
       given_name: "{{ given_name }}"
