@@ -34,7 +34,7 @@
     register: created_user_info
 
   - name: print debug
-    ansible.builting.debug:
+    ansible.builtin.debug:
       var: created_user_info
 
   - name: Stashing the group object_id away for later
