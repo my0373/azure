@@ -4,6 +4,7 @@
   vars:
     tenant_id: "xxx"
     user_id: "user-redhat"
+    user_principal_name: "{{ user_id }}"
     #immutable_id: "{{ object_id }}"
     given_name: "First"
     surname: "Last"
