@@ -13,7 +13,7 @@
       tenant: "{{ tenant_id }}"
       object_id: "{{ group_object_id }}"
       present_members: 
-        - "{{ user_object_id }}"
+        - "https://graph.windows.net/{{ tenant_id }}/directoryObjects/{{ user_object_id }}"
       state: 'present'
     register: created_group_info
 
